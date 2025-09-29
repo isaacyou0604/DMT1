@@ -78,6 +78,9 @@ a meaning in the application term. The new
 variable must not already be used in the code.
 @@@ -/
 
+def square' : Nat → Nat :=
+λ y => y^2
+
 /- @@@
 #4 [5 points]
 
@@ -255,6 +258,8 @@ def idPoly' {α : Type} (a : α) := a
 /- @@@
 ## Part II: Untyped Lambda Calculus
 @@@ -/
+
+def fBool := Nat → Nat → Nat
 
 /- @@@
 #12 [5 points]

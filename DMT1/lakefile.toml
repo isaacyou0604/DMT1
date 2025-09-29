@@ -1,0 +1,14 @@
+name = "DMT1"
+version = "2.0.0"
+defaultTargets = ["DMT1"]
+
+[[lean_lib]]
+name = "DMT1"
+
+# [[lean_exe]]
+# name = "dmt1"
+# root = "Main"
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"

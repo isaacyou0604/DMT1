@@ -1,0 +1,94 @@
+{
+    "name": "Reasoning and Computation",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    // Use the non-root user created in the Dockerfile
+    "remoteUser": "dev",
+    "overrideCommand": false,
+    "updateRemoteUserUID": true,
+    // Useful inside tasks/terminals for scripts that read this var
+    "containerEnv": {
+        "WORKSPACE_FOLDER": "${containerWorkspaceFolder}"
+    },
+    // Make elan/lean/lake available in VS Code shells & tasks.
+    // IMPORTANT: use the container's HOME, not the host's.
+    "remoteEnv": {
+        "PATH": "/home/dev/.elan/bin:/home/dev/.local/bin:${containerEnv:PATH}"
+    },
+    "runArgs": [
+        "--memory=10gb",
+        "--init",
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined"
+    ],
+    // If the Dockerfile already sets PATH (e.g., /etc/profile.d/elan.sh),
+    // this does nothing. Otherwise it appends once so non-login shells see it.
+    // "postCreateCommand": "bash -lc 'command -v lean >/dev/null 2>&1 || { echo \"export PATH=\\\"$HOME/.elan/bin:$HOME/.local/bin:$PATH\\\"\" >> ~/.bashrc; echo \"export PATH=\\\"$HOME/.elan/bin:$HOME/.local/bin:$PATH\\\"\" >> ~/.profile; } && (lean --version || true) && (lake --version || true)'",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "python.analysis.typeEvaluation.deprecateTypingAliases": true
+            },
+            "extensions": [
+                "leanprover.lean4",
+                "denis-gorbachev.lean4-code-actions",
+                "formulahendry.auto-close-tag",
+                "formulahendry.auto-rename-tag",
+                "aaron-bond.better-comments",
+                "alefragnani.bookmarks",
+                "streetsidesoftware.code-spell-checker",
+                "continue.continue",
+                "dafny-lang.ide-vscode",
+                "ms-vscode-remote.remote-containers",
+                "oouo-diogo-perdigao.docthis",
+                "cschlosser.doxdocgen",
+                "usernamehw.errorlens",
+                "tamasfe.even-better-toml",
+                "sleistner.vscode-fileutils",
+                "github.vscode-pull-request-github",
+                "github.remotehub",
+                "jcanero.hoogle-vscode",
+                "ecmel.vscode-html-css",
+                "oderwat.indent-rainbow",
+                "visualstudioexptteam.vscodeintellicode",
+                "visualstudioexptteam.intellicode-api-usage-examples",
+                "shreyassrinivas.loogle-lean",
+                "pkief.material-icon-theme",
+                "cardinal90.multi-cursor-case-preserve",
+                "christian-kohler.path-intellisense",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "mechatroner.rainbow-csv",
+                "ms-vscode-remote.remote-ssh-edit",
+                "ms-vscode.remote-server",
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "ms-vscode.remote-explorer",
+                "ms-vscode.remote-repositories",
+                "stkb.rewrap",
+                "rangav.vscode-thunder-client",
+                "gruntfuggly.todo-tree",
+                "pflannery.vscode-versionlens",
+                "vscode-icons-team.vscode-icons",
+                "ms-vsliveshare.vsliveshare-pack",
+                "yzhang.markdown-all-in-one",
+                "goessner.mdmath",
+                "davidanson.vscode-markdownlint",
+                "mathematic.vscode-pdf",
+                "eamodio.gitlens",
+                "stephanvs.dot",
+                "ms-vscode-remote.remote-ssh",
+                "github.vscode-pull-request-github",
+                "esbenp.prettier-vscode",
+                "vscjava.vscode-java-pack",
+                "ms-python.black-formatter",
+                "GitHub.vscode-github-actions",
+                "dt.ghlink"
+            ]
+        }
+    }
+    // , "forwardPorts": [5037, 5038, 5555, 5554]
+}
