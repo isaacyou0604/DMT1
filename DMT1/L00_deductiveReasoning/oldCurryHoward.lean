@@ -108,7 +108,7 @@ structure And (a b : Prop) : Prop where
 axiom P : Prop
 axiom Q : Prop
 
-def aProof : And P Q := And.intro _ _
+def aProof : And P Q := And.intro sorry sorry
 
 #check And.left aProof
 #check And.right aProof
@@ -184,7 +184,7 @@ theorem pfPorQ : P ∨ Q :=
 What's left undone here is a term
 of type, i.e., a proof of, P ∨ Q.
 @@@ -/
-theorem pfPorQ2 : P ∨ Q := _
+theorem pfPorQ2 : P ∨ Q := sorry
 
 /- @@@
 At the moment we've no proof that
@@ -257,9 +257,9 @@ is that most mathematics would write iff.
 
 def iff (x y : Bool) : Bool :=
 match x, y with
-| false, true => true
-| true, false => true
-| _, _ => false
+| Bool.false, Bool.true => Bool.true
+| Bool.true, Bool.false => Bool.true
+| _, _ => Bool.false
 
 axiom q : Q
 

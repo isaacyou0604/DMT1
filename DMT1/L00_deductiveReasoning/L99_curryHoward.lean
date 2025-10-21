@@ -1,5 +1,8 @@
 /- @@@
 # Curry-Howard: Logic ↔ Computation
+
+<!-- toc -->
+
 Below is the mapping between the *logical* connectives
 of predicate logic (higher-order, as embedded in Lean)
 and their *computational* analogues under the Curry-Howard
