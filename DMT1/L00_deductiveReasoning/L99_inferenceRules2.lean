@@ -63,11 +63,12 @@ understand →, you now understand ∀ but for syntactic details.
 ## ¬ (negation)
 
 - (def)     `Not P := P → False`
-- (elim)    `not_elim : (P → False) → P → False`  -- by application
+- (elim)    `not_elim : ¬¬P → P`  -- by application
 @@@ -/
 
 /- @@@
 ## ∃ (existential quantifier)
+Not in scope for Midterm
 
 - (intro)   `Exists.intro : ∀ {α} {p : α → Prop} (w : α), p w → ∃ x, p x`
 - (elim)    `Exists.elim  : (∃ x, p x) → (∀ w, p w → R) → R`  -- aka `Exists.rec`
@@ -75,8 +76,8 @@ understand →, you now understand ∀ but for syntactic details.
 
 /- @@@
 ## = (propositional equality)
+Not in scope for Midterm
 
 - (refl)    `rfl` / `Eq.refl  : a = a`
 - (rec)     `Eq.rec    : {motive : α → Sort u} → a = b → motive a → motive b`
-
 @@@ -/
